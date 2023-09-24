@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD</title>
+    <title>CRUD Person</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 </style>
 <body>
 
-    <form action=" <?php if($Action === "Update") echo 'UpdatePerson.php';else if($Action === "Delete") echo 'DeletePerson.php'; else echo 'CreatePerson.php' ?> " class="formPerson m-3" method="post">
+    <form action=" <?php if($Action === "Update") echo 'UpdatePerson.php';else if($Action === "Delete") echo 'DeletePerson.php'; else echo 'CreatePerson.php' ?> " class="formPerson mt-3" method="post">
         <div class="in-form"  style="float: left;">
             <input type="text" name="id" value="<?php echo $PerID ?>" hidden>
             <label for="">First Name</label> 
@@ -93,13 +93,34 @@
     // var act = document.querySelector('.formPerson').getAttribute('action');
     // console.log(act);
 
+    // document.getElementById('tblPerson_filter').style.display='none';
+
     onDelete();
+    onUpdate();
+    onCreate();
+
     console.log(<?php echo $Action ?>)
     function onDelete(){
         if("Delete"=== "<?php echo $Action ?>" ){
 
             document.getElementById('btnSubmit').addEventListener('click',()=>{
-                alert('Are you sure to delete the Person?');
+                alert('Person Deleted.');
+            })
+        }
+    }
+    function onUpdate(){
+        if("Update"=== "<?php echo $Action ?>" ){
+
+            document.getElementById('btnSubmit').addEventListener('click',()=>{
+                alert('Person Updated.');
+            })
+        }
+    }
+    function onCreate(){
+        if(""==="<?php echo $Action ?>" ){
+
+            document.getElementById('btnSubmit').addEventListener('click',()=>{
+                alert('Person Created.');
             })
         }
     }
