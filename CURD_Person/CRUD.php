@@ -22,11 +22,28 @@
         display: flex;
         align-items: center;
     }
+    .peo_pic{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        margin: auto;
+    }
+    .cover_pic{
+        width: 200px;
+        margin: auto;
+    }
+    .cover_pic #upload_photo{
+        margin-top: 10px;
+    }
+    .peo_pic #prw_img{
+        width: 100%;
+        height: 100%;
+    }
 
 </style>
 <body>
 
-    <form action=" <?php if($Action === "Update") echo 'UpdatePerson.php';else if($Action === "Delete") echo 'DeletePerson.php'; else echo 'CreatePerson.php' ?> " class="formPerson mt-3" method="post">
+    <form action=" <?php if($Action === "Update") echo 'UpdatePerson.php';else if($Action === "Delete") echo 'DeletePerson.php'; else echo 'CreatePerson.php' ?> " class="formPerson mt-3" method="post" enctype="multipart/form-data">
         <div class="in-form"  style="float: left;">
             <input type="text" name="id" value="<?php echo $PerID ?>" hidden>
             <label for="">First Name</label> 
@@ -56,6 +73,15 @@
             <input class="form-control m-2 w-50 p-1" type="text" name="address" value="<?php echo $PerAddress ?>" >
             <input class="btn btn-danger w-25 m-2" id="btnSubmit" type="submit" name="btnsubmit">
         </div>
+        <div class="pic">
+            <div class="cover_pic">
+                <div class="peo_pic">
+                    <img src="<?php echo $PerPhoto ?>" alt="" id="prw_img">
+                </div>
+                <input type="file" id="upload_photo" name="upload_photo">
+            </div>
+            <h1 id="hello">hello</h1>
+        </div>
     </form>
     <div class="tb-info">
         <table class="table table-striped table-hover table-bordered"  id="tblPerson" style="width:100%" >
@@ -67,6 +93,7 @@
                 <th scope="col">Gender</th>
                 <th scope="col">Birth Date</th>
                 <th scope="col">Address</th>
+                <th scope="col">Photo</th>
                 <th scope="col">Action</th>
                 <!-- <th scope="col">Address</th> -->
               </tr>
@@ -124,5 +151,31 @@
             })
         }
     }
+
+
+    // Upload Image
+
+    const picture = document.getElementById('prw_img');
+    const upload_pic = document.getElementById('upload_photo');
+    var txt='k';
+
+    upload_pic.addEventListener('change',function(){
+        var files = this.files[0];
+        var fileReader = new FileReader();
+
+        fileReader.addEventListener('load',function(){
+            picture.src = fileReader.result;
+        })
+
+        fileReader.readAsDataURL(files);
+        txt = files.name;
+
+        console.log(txt);
+
+        document.querySelector('#hello').innerHTML = txt;
+    })
+
+    
+
 </script>
 </html>

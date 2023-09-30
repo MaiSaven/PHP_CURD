@@ -19,6 +19,7 @@
         $Gender = $_POST['gender'];
         $Dob    = $_POST['dob'];
         $Address= $_POST['address'];
+        $Photo  = $_POST['upload_photo'];
 
         echo $id.$ftName.$ltName.$Gender.$Dob.$Address;
 

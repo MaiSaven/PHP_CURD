@@ -10,6 +10,7 @@
     $PerAddress = '';
     $PerDob = '';
     $Action = '';
+    $PerPhoto ='';
 
     if(isset($_GET['id'])!=null){
         $id=$_GET['id'];
@@ -27,6 +28,7 @@
         $PerGender = $rows['peo_gnd'];
         $PerAddress = $rows['peo_address'];
         $PerDob = $rows['peo_dob'];
+        $PerPhoto = $rows['peo_photo'];
     }
 
 ?>

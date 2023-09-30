@@ -1,7 +1,7 @@
 <?php
 $con = new mysqli('localhost', 'root', '1234', 'learnwebside');
 
-$retrieve = "SELECT peo_id, peo_ftnm, peo_ltnm, peo_gnd, peo_dob, peo_address FROM Person";
+$retrieve = "SELECT peo_id, peo_ftnm, peo_ltnm, peo_gnd, peo_dob, peo_address, peo_photo FROM Person";
 
 
 
@@ -27,6 +27,11 @@ $retrieve = "SELECT peo_id, peo_ftnm, peo_ltnm, peo_gnd, peo_dob, peo_address FR
                 </td>
                 <td><?php echo $rows['peo_dob'] ?></td>
                 <td><?php echo $rows['peo_address'] ?></td>
+                <td>
+                    <!-- <div width="70px" height="70px"> -->
+                        <img src="Img/<?php echo $rows['peo_photo']?>" alt="" width="70px" height="70px">
+                    <!-- </div>     -->
+                </td>
                 <td>
                     <a class="btn btn-primary" id="edit" href="CRUD.php?id=<?php echo $rows['peo_id']?> && action=Update">Edit</a>
                     <a class="btn btn-danger"  id="delete" href="CRUD.php?id=<?php echo $rows['peo_id']?> && action=Delete">Delete</a>
