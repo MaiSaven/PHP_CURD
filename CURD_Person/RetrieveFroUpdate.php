@@ -17,7 +17,7 @@
         $Action=$_GET['action'];
         // echo $Action;
 
-        $selectForUpdate = "SELECT `peo_id`, `peo_ftnm`, `peo_ltnm`, `peo_gnd`, `peo_dob`, `peo_address` FROM `person` WHERE peo_id = $id";
+        $selectForUpdate = "SELECT `peo_id`, `peo_ftnm`, `peo_ltnm`, `peo_gnd`, `peo_dob`, `peo_address`,`peo_photo` FROM `person` WHERE peo_id = $id";
     
         $Person = $con->query($selectForUpdate);
         $rows = $Person->fetch_assoc();

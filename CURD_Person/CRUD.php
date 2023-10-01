@@ -76,7 +76,7 @@
         <div class="pic">
             <div class="cover_pic">
                 <div class="peo_pic">
-                    <img src="<?php echo $PerPhoto ?>" alt="" id="prw_img">
+                    <img src="Img\<?php echo $PerPhoto ?>" alt="" id="prw_img">                    
                 </div>
                 <input type="file" id="upload_photo" name="upload_photo">
             </div>
@@ -126,7 +126,7 @@
     onUpdate();
     onCreate();
 
-    console.log(<?php echo $Action ?>)
+   
     function onDelete(){
         if("Delete"=== "<?php echo $Action ?>" ){
 
@@ -157,7 +157,7 @@
 
     const picture = document.getElementById('prw_img');
     const upload_pic = document.getElementById('upload_photo');
-    var txt='k';
+    var txt='';
 
     upload_pic.addEventListener('change',function(){
         var files = this.files[0];

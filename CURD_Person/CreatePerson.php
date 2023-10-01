@@ -29,19 +29,21 @@
         $file_photo = $_FILES['upload_photo']['name'];
         $temp = $_FILES['upload_photo']['tmp_name'];
         $path = 'Img/';
+
+        $Photo = "Photo_".$file_photo;
     
-        $res = move_uploaded_file($temp,$path.$file_photo );
+        $res = move_uploaded_file($temp, $path.$Photo );
         if($res){
             ?>
                 <script>alert('Successfully!')</script>
             <?php
         }
-        echo "path:".$path." " ."temp:".$temp." "."File:".$file_photo;
+        echo "path:".$path." " ."temp:".$temp." "."File:".$file_photo."File name".$Photo;
 
 
         // echo $Address;
 
-        $insert = "INSERT INTO `person` VALUES (null,'$ftName','$ltName','$Gender','$Dob','$Address','$file_photo')";
+        $insert = "INSERT INTO `person` VALUES (null,'$ftName','$ltName','$Gender','$Dob','$Address','$Photo')";
 
         $result = $con->query($insert);
 
